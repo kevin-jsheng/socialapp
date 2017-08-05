@@ -16,6 +16,11 @@
 		0A8C6AF91F31890C00D4014E /* socialappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C6AF81F31890C00D4014E /* socialappTests.swift */; };
 		0A8C6B041F31890C00D4014E /* socialappUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C6B031F31890C00D4014E /* socialappUITests.swift */; };
 		0AF90BC71F32C9FD000AFDFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0AF90BC61F32C9FD000AFDFE /* GoogleService-Info.plist */; };
+		0AF90BCC1F3552CF000AFDFE /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF90BCB1F3552CF000AFDFE /* FancyView.swift */; };
+		0AF90BCF1F3553C1000AFDFE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF90BCE1F3553C1000AFDFE /* Constants.swift */; };
+		0AF90BD11F355554000AFDFE /* RoundBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF90BD01F355554000AFDFE /* RoundBtn.swift */; };
+		0AF90BD31F35585C000AFDFE /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF90BD21F35585C000AFDFE /* FancyField.swift */; };
+		0AF90BD51F355937000AFDFE /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF90BD41F355937000AFDFE /* FancyBtn.swift */; };
 		5C23DF7B3C413583F08128B3 /* Pods_socialapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBD8738C72FDCF491A24434 /* Pods_socialapp.framework */; };
 		A53CA1CE8887ACD7C8F9F49D /* Pods_socialappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7D4F04A4144851816491D2 /* Pods_socialappTests.framework */; };
 		D828E17A99FC4B1057404F1B /* Pods_socialappUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1080D3FF13E4112718C5ECB /* Pods_socialappUITests.framework */; };
@@ -54,6 +59,11 @@
 		0A8C6B031F31890C00D4014E /* socialappUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = socialappUITests.swift; sourceTree = "<group>"; };
 		0A8C6B051F31890C00D4014E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF90BC61F32C9FD000AFDFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0AF90BCB1F3552CF000AFDFE /* FancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
+		0AF90BCE1F3553C1000AFDFE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0AF90BD01F355554000AFDFE /* RoundBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBtn.swift; sourceTree = "<group>"; };
+		0AF90BD21F35585C000AFDFE /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FancyField.swift; path = "../../../../../Downloads/devslopes-social-final-source-code/devslopes-social/FancyField.swift"; sourceTree = "<group>"; };
+		0AF90BD41F355937000AFDFE /* FancyBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FancyBtn.swift; path = "../../../../../Downloads/devslopes-social-final-source-code/devslopes-social/FancyBtn.swift"; sourceTree = "<group>"; };
 		43C9079CA436405A295EFFA0 /* Pods-socialappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialappTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-socialappTests/Pods-socialappTests.release.xcconfig"; sourceTree = "<group>"; };
 		6905D581FDDD3136F761F455 /* Pods-socialappUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialappUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialappUITests/Pods-socialappUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		753636F653A5AE834E41648A /* Pods-socialappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-socialappTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-socialappTests/Pods-socialappTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +128,7 @@
 		0A8C6ADF1F31890C00D4014E /* socialapp */ = {
 			isa = PBXGroup;
 			children = (
+				0AF90BCD1F3553A6000AFDFE /* Util */,
 				0AF90BCA1F32D305000AFDFE /* Model */,
 				0AF90BC81F32D2D0000AFDFE /* View */,
 				0AF90BC91F32D2EF000AFDFE /* Controller */,
@@ -153,7 +164,10 @@
 		0AF90BC81F32D2D0000AFDFE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A8C6AE21F31890C00D4014E /* LoginVC.swift */,
+				0AF90BD41F355937000AFDFE /* FancyBtn.swift */,
+				0AF90BD21F35585C000AFDFE /* FancyField.swift */,
+				0AF90BCB1F3552CF000AFDFE /* FancyView.swift */,
+				0AF90BD01F355554000AFDFE /* RoundBtn.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,6 +175,7 @@
 		0AF90BC91F32D2EF000AFDFE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0A8C6AE21F31890C00D4014E /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +185,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0AF90BCD1F3553A6000AFDFE /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0AF90BCE1F3553C1000AFDFE /* Constants.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		9E8B2C1CDED31CEF68BE08DB /* Pods */ = {
@@ -491,8 +514,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AF90BCF1F3553C1000AFDFE /* Constants.swift in Sources */,
 				0A8C6AE31F31890C00D4014E /* LoginVC.swift in Sources */,
 				0A8C6AE91F31890C00D4014E /* socialapp.xcdatamodeld in Sources */,
+				0AF90BD11F355554000AFDFE /* RoundBtn.swift in Sources */,
+				0AF90BCC1F3552CF000AFDFE /* FancyView.swift in Sources */,
+				0AF90BD31F35585C000AFDFE /* FancyField.swift in Sources */,
+				0AF90BD51F355937000AFDFE /* FancyBtn.swift in Sources */,
 				0A8C6AE11F31890C00D4014E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
