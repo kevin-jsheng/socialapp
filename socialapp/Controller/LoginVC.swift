@@ -55,6 +55,21 @@ class LoginVC: UIViewController {
     }
     
     @IBAction func signinTapped(_ sender: Any) {
-    }
+        if let email = emailField.text, let password = passswordField.text {
+            Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
+                if error == nil {
+                    print("JESS: Firebase Email Auth Successful")
+                } else {
+                    Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                        if error != nil {
+                            print("JESS: Unable to Login \(String(describing: error))")
+                        } else {
+                            print("JESS: Firebase Email Auth Created and Logon Successful")
+
+                        }
+                    })
+                }
+            })
+        }}
 }
 
