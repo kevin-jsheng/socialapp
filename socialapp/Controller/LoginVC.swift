@@ -10,6 +10,7 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
+import SwiftKeychainWrapper
 
 class LoginVC: UIViewController {
 
@@ -18,7 +19,13 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let retrievedString: String? = KeychainWrapper.standard.string(forKey: KEY_UID)
+        if (retrievedString != nil) {
+            performSegue(withIdentifier: "FeedVC", sender: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +57,10 @@ class LoginVC: UIViewController {
                 print ("JESS: Unable to authenticate with Firebase - \(String(describing: error))")
             } else {
                 print ("JESS: Firebase Authentication Successful")
+                if let usr = user {
+                    self.saveKeyChain(id: usr.uid)
+                }
+                self.performSegue(withIdentifier: "FeedVC", sender: nil)
             }
         })
     }
@@ -59,17 +70,30 @@ class LoginVC: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
                     print("JESS: Firebase Email Auth Successful")
+                    if let usr = user {
+                        self.saveKeyChain(id: usr.uid)
+                        self.performSegue(withIdentifier: "FeedVC", sender: nil)
+                    }
                 } else {
                     Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
                         if error != nil {
                             print("JESS: Unable to Login \(String(describing: error))")
                         } else {
                             print("JESS: Firebase Email Auth Created and Logon Successful")
-
+                            if let usr = user {
+                                self.saveKeyChain(id: usr.uid)
+                            }
+                            self.performSegue(withIdentifier: "FeedVC", sender: nil)
                         }
                     })
                 }
             })
         }}
+    
+    func saveKeyChain(id: String)
+    {
+        let keyChainSaveRes = KeychainWrapper.standard.set(id, forKey: KEY_UID)
+        print("JESS: Key Chain Save Result \(keyChainSaveRes)")
+    }
 }
 
