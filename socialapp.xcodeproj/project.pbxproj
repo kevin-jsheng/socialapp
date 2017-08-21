@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A8978921F4B537F00F475E5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8978911F4B537F00F475E5 /* CircleView.swift */; };
 		0A8C6AE11F31890C00D4014E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C6AE01F31890C00D4014E /* AppDelegate.swift */; };
 		0A8C6AE31F31890C00D4014E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C6AE21F31890C00D4014E /* LoginVC.swift */; };
 		0A8C6AE61F31890C00D4014E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A8C6AE41F31890C00D4014E /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A8978911F4B537F00F475E5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		0A8C6ADD1F31890C00D4014E /* socialapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A8C6AE01F31890C00D4014E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A8C6AE21F31890C00D4014E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				0AF90BD21F35585C000AFDFE /* FancyField.swift */,
 				0AF90BCB1F3552CF000AFDFE /* FancyView.swift */,
 				0AF90BD01F355554000AFDFE /* RoundBtn.swift */,
+				0A8978911F4B537F00F475E5 /* CircleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				0A8C6AE91F31890C00D4014E /* socialapp.xcdatamodeld in Sources */,
 				0AF90BD11F355554000AFDFE /* RoundBtn.swift in Sources */,
 				0AF90BCC1F3552CF000AFDFE /* FancyView.swift in Sources */,
+				0A8978921F4B537F00F475E5 /* CircleView.swift in Sources */,
 				0AF90BD31F35585C000AFDFE /* FancyField.swift in Sources */,
 				0AF90BD51F355937000AFDFE /* FancyBtn.swift in Sources */,
 				0A8C6AE11F31890C00D4014E /* AppDelegate.swift in Sources */,
