@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A433ADF1F4B80AD00714B02 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A433ADE1F4B80AD00714B02 /* PostTableViewCell.swift */; };
 		0A8978921F4B537F00F475E5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8978911F4B537F00F475E5 /* CircleView.swift */; };
 		0A8C6AE11F31890C00D4014E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C6AE01F31890C00D4014E /* AppDelegate.swift */; };
 		0A8C6AE31F31890C00D4014E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8C6AE21F31890C00D4014E /* LoginVC.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A433ADE1F4B80AD00714B02 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		0A8978911F4B537F00F475E5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		0A8C6ADD1F31890C00D4014E /* socialapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = socialapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A8C6AE01F31890C00D4014E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				0AF90BCB1F3552CF000AFDFE /* FancyView.swift */,
 				0AF90BD01F355554000AFDFE /* RoundBtn.swift */,
 				0A8978911F4B537F00F475E5 /* CircleView.swift */,
+				0A433ADE1F4B80AD00714B02 /* PostTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A433ADF1F4B80AD00714B02 /* PostTableViewCell.swift in Sources */,
 				0AF90BD71F4A34F2000AFDFE /* FeedVC.swift in Sources */,
 				0AF90BCF1F3553C1000AFDFE /* Constants.swift in Sources */,
 				0A8C6AE31F31890C00D4014E /* LoginVC.swift in Sources */,
