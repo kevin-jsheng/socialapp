@@ -58,9 +58,11 @@ class LoginVC: UIViewController {
             } else {
                 print ("JESS: Firebase Authentication Successful")
                 if let usr = user {
-                    self.saveKeyChain(id: usr.uid)
+                    
+                    let userData = ["provider": credential.provider]
+                    self.completeSignIn(id: usr.uid, userData: userData)
                 }
-                self.performSegue(withIdentifier: "FeedVC", sender: nil)
+                
             }
         })
     }
@@ -71,8 +73,8 @@ class LoginVC: UIViewController {
                 if error == nil {
                     print("JESS: Firebase Email Auth Successful")
                     if let usr = user {
-                        self.saveKeyChain(id: usr.uid)
-                        self.performSegue(withIdentifier: "FeedVC", sender: nil)
+                        let userData = ["provider": usr.providerID]
+                        self.completeSignIn(id: usr.uid, userData: userData)
                     }
                 } else {
                     Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -81,19 +83,24 @@ class LoginVC: UIViewController {
                         } else {
                             print("JESS: Firebase Email Auth Created and Logon Successful")
                             if let usr = user {
-                                self.saveKeyChain(id: usr.uid)
+                                let userData = ["provider": usr.providerID]
+                                self.completeSignIn(id: usr.uid, userData: userData)
                             }
-                            self.performSegue(withIdentifier: "FeedVC", sender: nil)
+                            
                         }
                     })
                 }
             })
         }}
     
-    func saveKeyChain(id: String)
+ 
+    
+    func completeSignIn(id: String, userData: Dictionary<String, String>)
     {
+        DataService.ds.createFirebaseUser(uid: id, userData: userData)
         let keyChainSaveRes = KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("JESS: Key Chain Save Result \(keyChainSaveRes)")
+        performSegue(withIdentifier: "FeedVC", sender: nil)
     }
 }
 
