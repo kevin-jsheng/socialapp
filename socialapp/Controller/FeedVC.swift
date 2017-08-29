@@ -10,17 +10,22 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
+class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageAdded: CircleView!
     
     var posts = [Post]()
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        // Do any additional setup after loading the view.
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
         
         //  this will execute whenever data change in the server
         //  it also execute when this run initially
@@ -41,6 +46,16 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
             
             self.tableView.reloadData()
         })
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            imageAdded.image = image
+        } else {
+            print ("JESS: no valid image selected")
+        }
+        imagePicker.dismiss(animated: true, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,6 +95,10 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource {
     }
     */
 
+    @IBAction func addImageTapped(_ sender: Any) {
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
     @IBAction func signOut(_ sender: Any) {
         
         let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
