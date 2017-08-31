@@ -14,9 +14,11 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource, UI
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var imageAdded: CircleView!
+    @IBOutlet weak var captionField: FancyField!
     
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
+    var imageSelected = false
     
     static var imageCache: NSCache <NSString, UIImage> = NSCache()
     
@@ -55,6 +57,7 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource, UI
         
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             imageAdded.image = image
+            imageSelected = true
         } else {
             print ("JESS: no valid image selected")
         }
@@ -74,6 +77,34 @@ class FeedVC: UIViewController , UITableViewDelegate , UITableViewDataSource, UI
         return posts.count
     }
     
+    @IBAction func postBtnTapped(_ sender: Any) {
+        
+        guard let caption = captionField.text, caption != "" else {
+            print("JESS: Caption field is nil")
+            return
+        }
+        
+        guard let img  = imageAdded.image, imageSelected == true else {
+            print("JESS: image field is nil")
+            return
+        }
+        
+        if let imageData = UIImageJPEGRepresentation(img, 0.2) {
+            
+            let imageUid = NSUUID().uuidString
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            
+            DataService.ds.REF_POST_IMAGES.child(imageUid).putData(imageData, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    print ("JESS: Unable to upload image to Storage")
+                } else {
+                    print ("JESS: Uploaded image to Storage OK")
+                    let downloadUrl = metadata?.downloadURL()?.absoluteString
+                }
+            }
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // print ("JESS: Load tableview")
